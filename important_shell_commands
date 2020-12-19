@@ -1,0 +1,47 @@
+
+mongoimport --host cosmos-best-for-you-db-eastus-001.mongo.cosmos.azure.com:10255 -u cosmos-best-for-you-db-eastus-001 -p OKbkboy31mmt7W4uWf9l4Rmq9tk9Z6CFUCztCKZ62NaQdUdKaCCymduelDH36DDZ1uxsorfo3Qc6mINv2CdsVQ== --db best-for-you-organics --collection plans --ssl --sslAllowInvalidCertificates --type json --file plans.json
+
+
+mongoimport --host cosmos-best-for-you-db-eastus-001.mongo.cosmos.azure.com:10255 -u cosmos-best-for-you-db-eastus-001 -p OKbkboy31mmt7W4uWf9l4Rmq9tk9Z6CFUCztCKZ62NaQdUdKaCCymduelDH36DDZ1uxsorfo3Qc6mINv2CdsVQ== --db best-for-you-organics --collection orders --ssl --sslAllowInvalidCertificates --type json --file orders.json
+
+
+mongoimport --host cosmos-best-for-you-db-eastus-001.mongo.cosmos.azure.com:10255 -u cosmos-best-for-you-db-eastus-001 -p OKbkboy31mmt7W4uWf9l4Rmq9tk9Z6CFUCztCKZ62NaQdUdKaCCymduelDH36DDZ1uxsorfo3Qc6mINv2CdsVQ== --db best-for-you-organics --collection users --ssl --sslAllowInvalidCertificates --type json --file users.json
+_________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+export mongopwd=DwySTt7k5LW7bNuPVJ6los5HWDEzJRPVTslY1hoRKjzMDvGPaCyU3e5f6E7Uyx2Yy3uk9Xhy55qAuMAE1LqDLA==
+
+
+mongoimport --host cosmos-best-for-you-db-eastus-001.mongo.cosmos.azure.com:10255 -u cosmos-best-for-you-db-eastus-001 -p $mongopwd --db best-for-you-organics --collection plans --ssl --sslAllowInvalidCertificates --type json --file plans.json
+
+
+mongoimport --host cosmos-best-for-you-db-eastus-001.mongo.cosmos.azure.com:10255 -u cosmos-best-for-you-db-eastus-001 -p $mongopwd --db best-for-you-organics --collection orders --ssl --sslAllowInvalidCertificates --type json --file orders.json
+
+
+mongoimport --host cosmos-best-for-you-db-eastus-001.mongo.cosmos.azure.com:10255 -u cosmos-best-for-you-db-eastus-001 -p $mongopwd --db best-for-you-organics --collection users --ssl --sslAllowInvalidCertificates --type json --file users.json
+_________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+
+
+# Local Container Registry  - Store Operation   
+# (Remember to include the "." at the end of the command)
+
+
+docker build --rm -f "Dockerfile" -t crbestforyou.azurecr.io/crbestforyou:latest .
+
+
+# Push to Remote Container Registry  - Store Operation
+# docker login [Login Server] -u [Username]
+
+docker login crbestforyou.azurecr.io -u crbestforyou
+
+docker image push crbestforyou.azurecr.io/crbestforyou:latest
+
+
+
+
+#CONNECTION STRINGS
+#OLD
+#var databaseUrl ='mongodb://cosmos-best-for-you-db-eastus-001:OKbkboy31mmt7W4uWf9l4Rmq9tk9Z6CFUCztCKZ62NaQdUdKaCCymduelDH36DDZ1uxsorfo3Qc6mINv2CdsVQ==@cosmos-best-for-you-db-eastus-001.mongo.cosmos.azure.com:10255/best-for-you-organics?ssl=true&replicaSet=globaldb&retrywrites=false&maxIdleTimeMS=120000&appName=@cosmos-best-for-you-db-eastus-001@'
+
+var databaseUrl ='mongodb://cosmos-best-for-you-db-eastus-001:DwySTt7k5LW7bNuPVJ6los5HWDEzJRPVTslY1hoRKjzMDvGPaCyU3e5f6E7Uyx2Yy3uk9Xhy55qAuMAE1LqDLA==@cosmos-best-for-you-db-eastus-001.mongo.cosmos.azure.com:10255/best-for-you-organics?ssl=true&replicaSet=globaldb&retrywrites=false&maxIdleTimeMS=120000&appName=@cosmos-best-for-you-db-eastus-001@'
