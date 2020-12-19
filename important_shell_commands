@@ -33,6 +33,9 @@ docker build --rm -f "Dockerfile" -t crbestforyou.azurecr.io/crbestforyou:latest
 # Push to Remote Container Registry  - Store Operation
 # docker login [Login Server] -u [Username]
 
+# OPTION for showing insecure examples
+# docker login crbestforyou.azurecr.io -u crbestforyou -p Ts8VOd=84x6l0AoqQp4HOXfw3gfW/I2d^C
+
 docker login crbestforyou.azurecr.io -u crbestforyou
 
 docker image push crbestforyou.azurecr.io/crbestforyou:latest
