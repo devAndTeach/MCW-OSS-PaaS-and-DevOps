@@ -58,7 +58,7 @@ export default class Plans extends Component {
 
         return (
             <div class="container">
-                <h3>Welcome to Best For You Organics Company-Anointed Edition</h3>
+                <h3>Welcome to Best For You Organics Company-Anointed Edition (BFYOC-AE)</h3>
                 <Grid>
                     <div class="plans">
                         <Row>{planCatalog}</Row>
